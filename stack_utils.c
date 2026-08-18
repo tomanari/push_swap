@@ -28,6 +28,20 @@ void	add_node(t_stack *stack, t_node *node)
 		stack->tail->next = node;
 		node->prev = stack->tail;
 		stack->tail = node;
-		stack->size++;
+	}
+	stack->size++;
+}
+
+void	print_stack(t_stack *stack)
+{
+	t_node	*node;
+
+	if (!stack)
+		return ;
+	node = stack->tail;
+	while (node)
+	{
+		printf("%d\n", node->num);
+		node = node->prev;
 	}
 }

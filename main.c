@@ -14,14 +14,21 @@
 
 int	main(void)
 {
-	t_node	*stack_a;
-	t_node	*conteiner;
+	t_data	*data;
+	t_node	*node;
 
-	conteiner = stack_a;
-	while (conteiner != NULL)
-	{
-		printf("%d\n", conteiner->num);
-		conteiner = conteiner->next;
-	}
+	data_init(data);
+
+	node = new_node(3);
+	add_node(&data->stack_a, node);
+
+	node = new_node(5);
+	add_node(&data->stack_a, node);
+
+	node = new_node(7);
+	add_node(&data->stack_a, node);
+
+	print_stack(&data->stack_a);
+
 	return (0);
 }

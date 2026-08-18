@@ -41,5 +41,11 @@ typedef struct s_data
 	int			total_ops;
 }	t_data;
 
-	
+t_node	*new_node(int num);
+void	add_node(t_stack *stack, t_node *node);
+
+void	data_init(t_data *data);
+
+void	print_stack(t_stack *stack);
+
 #endif

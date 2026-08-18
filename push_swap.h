@@ -17,13 +17,29 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-	typedef struct	s_stack
+typedef struct s_node
 	{
-		int				nb;
-		int				index;
+		int						num;
+		int						index;
 		struct s_node	*next;
 		struct s_node	*prev;
-	}				t_stack;
+	} t_node;
 
+typedef	struct s_stack
+	{
+		t_node	*head;
+		t_node	*tail;
+		int			size;
+	} t_stack;
 
+typedef struct s_data
+{
+	t_stack	stack_a;
+	t_stack	stack_b;
+
+	int			bench;
+	int			total_ops;
+}	t_data;
+
+	
 #endif

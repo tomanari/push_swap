@@ -16,11 +16,11 @@ int	main(void)
 {
 	t_node	*stack_a;
 	t_node	*conteiner;
-	
+
 	conteiner = stack_a;
-	while(conteiner != NULL)
+	while (conteiner != NULL)
 	{
-		printf("%d\n", conteiner->nb);
+		printf("%d\n", conteiner->num);
 		conteiner = conteiner->next;
 	}
 	return (0);

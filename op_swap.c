@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	swap(t_stack *stack)
+void	ft_swap(t_stack *stack)
 {
 	int	temp;
 	
@@ -13,16 +13,16 @@ void	swap(t_stack *stack)
 
 void	sa(t_stack *stack_a)
 {
-	swap(stack_a);
+	ft_swap(stack_a);
 }
 
 void	sb(t_stack *stack_b)
 {
-	swap(stack_b);
+	ft_swap(stack_b);
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
 {
-	swap(stack_a);
-	swap(stack_b);
+	ft_swap(stack_a);
+	ft_swap(stack_b);
 }

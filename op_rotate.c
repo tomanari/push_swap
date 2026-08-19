@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_swap.c                                          :+:      :+:    :+:   */
+/*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/19 16:20:45 by mtomanar          #+#    #+#             */
-/*   Updated: 2026/08/19 16:20:46 by mtomanar         ###   ########.fr       */
+/*   Created: 2026/08/19 16:20:41 by mtomanar          #+#    #+#             */
+/*   Updated: 2026/08/19 17:29:57 by mtomanar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_stack *stack)
+void	ft_rotate(t_stack *stack)
 {
 	int	temp;
+	int	i;
 	
-	if(!stack || stack->size < 2)
+	if (!stack || stack->size <= 1)
 		return ;
 	temp = stack->values[0];
-	stack->values[0] = stack->values [1];
-	stack->values[1] = temp;
+	i = 0;
+	while (i < stack->size - 1)
+	{
+		stack->values[i] = stack->values[i + 1];
+		i++;
+	}
+	stack->values[i] = temp;
 }
 
-void	sa(t_stack *stack_a)
+void	ra(t_stack *stack_a)
 {
-	ft_swap(stack_a);
+	ft_rotate(stack_a);
 }
 
-void	sb(t_stack *stack_b)
+void	rb(t_stack *stack_b)
 {
-	ft_swap(stack_b);
+	ft_rotate(stack_b);
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
-{
-	ft_swap(stack_a);
-	ft_swap(stack_b);
-}

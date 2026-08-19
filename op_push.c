@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   op_push.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/19 16:20:37 by mtomanar          #+#    #+#             */
+/*   Updated: 2026/08/19 16:20:38 by mtomanar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_push(t_stack *from, t_stack *to)
@@ -24,4 +36,14 @@ void	ft_push(t_stack *from, t_stack *to)
 	to->size++;
 	to->values[0] = temp;
 	from->size--;
+}
+
+void	ft_pa(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_push(stack_b, stack_a);
+}
+
+void	ft_pb(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_push(stack_a, stack_b);
 }

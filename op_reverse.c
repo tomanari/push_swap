@@ -1,49 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   op_reverse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/19 16:20:37 by mtomanar          #+#    #+#             */
-/*   Updated: 2026/08/19 17:44:22 by mtomanar         ###   ########.fr       */
+/*   Created: 2026/08/19 17:41:53 by mtomanar          #+#    #+#             */
+/*   Updated: 2026/08/19 18:42:50 by mtomanar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_stack *from, t_stack *to)
+void	ft_reverse(t_stack *stack)
 {
 	int	temp;
-	int i;
-
-	if (!from || !to || from->size == 0)
+	int	size; 
+	int	i;
+	
+	if (!stack || stack->size <= 1)
 		return ;
-
-	temp = from->values[0];
-	i = 0;
-	while (i < from->size - 1)
+	
+	size = stack->size - 1;
+	i = size;
+	temp = stack->values[size];
+	while (i > 0)
 	{
-		from->values[i] = from->values[i + 1];
-		i++;
-	}
-	i = to->size;
-	while(i > 0)
-	{
-		to->values[i] = to->values[i - 1];
+		stack->values[i] = stack->values[i - 1];
 		i--;
 	}
-	to->size++;
-	to->values[0] = temp;
-	from->size--;
+	stack->values[0] = temp;
 }
 
-void	ft_pa(t_stack *stack_a, t_stack *stack_b)
+void	rra(t_stack *stack_a)
 {
-	ft_push(stack_b, stack_a);
+	ft_reverse(stack_a);
 }
 
-void	ft_pb(t_stack *stack_a, t_stack *stack_b)
+void	rrb(t_stack *stack_b)
 {
-	ft_push(stack_a, stack_b);
+	ft_reverse(stack_b);
 }
+
+void	rrr(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_rotate(stack_a);
+	ft_rotate(stack_b);
+}
+

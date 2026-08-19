@@ -6,7 +6,7 @@
 /*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:20:41 by mtomanar          #+#    #+#             */
-/*   Updated: 2026/08/19 17:29:57 by mtomanar         ###   ########.fr       */
+/*   Updated: 2026/08/19 17:36:14 by mtomanar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,8 @@ void	rb(t_stack *stack_b)
 	ft_rotate(stack_b);
 }
 
+void	rr(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_rotate(stack_a);
+	ft_rotate(stack_b);
+}

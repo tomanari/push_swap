@@ -6,7 +6,7 @@
 /*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 14:42:25 by mtomanar          #+#    #+#             */
-/*   Updated: 2026/08/20 15:32:56 by mtomanar         ###   ########.fr       */
+/*   Updated: 2026/08/20 16:05:17 by mtomanar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,29 @@ int	find_minindex(t_stack *stack_a)
 
 void	sort_top(t_stack *stack_a)
 {
+	int	ra_count;
+	int	rra_count;
+	int	i;
 	
+	ra_count = find_minindex(stack_a);
+	rra_count = stack_a->size - ra_count;
+	i = 0; 
+	if (ra_count < rra_count)
+	{
+		while (i < ra_count)
+		{
+			ra(stack_a);
+			i++;
+		}
+	}
+	else
+	{
+		while (i < rra_count)
+		{
+			rra(stack_a);
+			i++;
+		}	
+	}
 }
 
 void	sort_bottom(t_stack *stack_a)

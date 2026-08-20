@@ -6,7 +6,7 @@
 /*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 12:23:56 by mtomanar          #+#    #+#             */
-/*   Updated: 2026/08/20 14:20:59 by mtomanar         ###   ########.fr       */
+/*   Updated: 2026/08/20 16:22:31 by mtomanar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,11 @@ void	sort_three(t_stack *stack_a)
 
 void	sort_five(t_stack *stack_a, t_stack *stack_b)
 {
-	
+	sort_top(stack_a);
+	pb(stack_a, stack_b);
+	sort_top(stack_a);
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	pa(stack_b);
+	pa(stack_b);
 }

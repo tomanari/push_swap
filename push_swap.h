@@ -6,7 +6,7 @@
 /*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 15:24:33 by mtomanar          #+#    #+#             */
-/*   Updated: 2026/08/17 16:46:40 by mtomanar         ###   ########.fr       */
+/*   Updated: 2026/08/20 14:32:16 by mtomanar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef	struct s_stack
-	{
-		int		values;
-		long	size;
-		int		capacity;
-	} t_stack;
+typedef struct s_stack
+{
+	int		values;
+	long	size;
+	int		capacity;
+}	t_stack;
 
 void	print_stack(t_stack *stack);
 

@@ -6,7 +6,7 @@
 /*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:20:37 by mtomanar          #+#    #+#             */
-/*   Updated: 2026/08/19 17:44:22 by mtomanar         ###   ########.fr       */
+/*   Updated: 2026/08/20 14:34:09 by mtomanar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 void	ft_push(t_stack *from, t_stack *to)
 {
 	int	temp;
-	int i;
+	int	i;
 
 	if (!from || !to || from->size == 0)
 		return ;
-
 	temp = from->values[0];
 	i = 0;
 	while (i < from->size - 1)
@@ -28,7 +27,7 @@ void	ft_push(t_stack *from, t_stack *to)
 		i++;
 	}
 	i = to->size;
-	while(i > 0)
+	while (i > 0)
 	{
 		to->values[i] = to->values[i - 1];
 		i--;

@@ -1,0 +1,57 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/20 12:23:56 by mtomanar          #+#    #+#             */
+/*   Updated: 2026/08/20 14:16:19 by mtomanar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	sort_two(t_stack *stack_a)
+{
+	if (is_sorted(stack_a) == 1)
+		return ;
+	sa(stack_a);
+}
+
+int	find_maxindex(t_stack *stack_a)
+{
+	int	max_index;
+	int	i;
+
+	max_index = 0;
+	i = 0;
+	while (i < stack_a->size)
+	{
+		if(stack_a->values[i] > stack_a->values[max_index])
+			max_index = i;
+		i++;		
+	}
+	return (max_index);
+}
+
+void	sort_bottom(t_stack *stack_a)
+{
+	int	max_index;
+
+	max_index = find_maxindex(stack_a);
+	if (is_sorted(stack_a) == 1)
+		return ;
+	if (max_index == 0)
+		ra(stack_a);
+	if (max_index == 1)
+		rra(stack_a);
+}
+
+void	sort_three(t_stack *stack_a)
+{
+	sort_bottom(stack_a);
+	if (is_sorted(stack_a) == 1)
+		return ;
+	sort_two(stack_a);
+}

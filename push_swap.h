@@ -24,6 +24,7 @@ typedef struct s_stack
 	int		capacity;
 }	t_stack;
 
+int		ft_sqrt(int n);
 int		find_maxindex(t_stack *stack_a);
 int		find_minindex(t_stack *stack_a);
 void	sort_top(t_stack *stack_a);

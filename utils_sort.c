@@ -83,3 +83,13 @@ void	sort_bottom(t_stack *stack_a)
 	if (max_index == 1)
 		rra(stack_a);
 }
+
+int	ft_sqrt(int n)
+{
+	int	i;
+
+	i = 0;
+	while (i * i <= n)
+		i++;
+	return (i - 1);
+}

@@ -27,3 +27,41 @@ int	get_index(t_stack *stack_a, int value)
 	}
 	return (index);
 }
+
+void	ft_chunk_index(t_stack *stack_a)
+{
+	int	*indexes;
+	int	i;
+
+	i = 0;
+	indexes = malloc(sizeof(int) * stack_a->size);
+	if (!indexes)
+		return ;
+	while (i < stack_a->size)
+	{
+		indexes[i] = get_index(stack_a, stack_a->values[i]);
+		i++;
+	}
+	i = 0;
+	while (i < stack_a->size)
+	{
+		stack_a->values[i]= indexes[i];
+		i++;
+	}
+	free(indexes);
+}
+
+void	ft_chunk_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	int	chunk_size;
+	int	chunk;
+	int	start;
+	int	end;
+
+	chunk = 0;
+	chunk_size = ft_sqrt(stack_a->size);
+	start = chunk * chunk_size;
+	end = (chunk + 1) * chunk_size;
+	
+
+}

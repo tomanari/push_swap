@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malves-a <malves-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:20:45 by mtomanar          #+#    #+#             */
-/*   Updated: 2026/08/20 14:34:49 by mtomanar         ###   ########.fr       */
+/*   Updated: 2026/08/20 18:09:25 by malves-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,26 @@ void	ft_swap(t_stack *stack)
 
 void	sa(t_stack *stack_a)
 {
+	if (!stack_a || stack_a->size < 2)
+		return ;
 	ft_swap(stack_a);
+	print_operation("sa", stack_a);
 }
 
 void	sb(t_stack *stack_b)
 {
+	if (!stack_b || stack_b->size < 2)
+		return ;
 	ft_swap(stack_b);
+	print_operation("sb", stack_b);
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
 {
+	if ((!stack_a || stack_a->size < 2)
+		&& (!stack_b || stack_b->size < 2))
+		return ;
 	ft_swap(stack_a);
 	ft_swap(stack_b);
+	print_operation("ss", stack_a);
 }

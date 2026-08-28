@@ -3,52 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malves-a <malves-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 18:58:31 by mtomanar          #+#    #+#             */
-/*   Updated: 2026/08/20 18:58:43 by mtomanar         ###   ########.fr       */
+/*   Updated: 2026/08/25 16:10:51 by malves-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_index(t_stack *stack_a, int value)
+static void	ft_rotate_max(t_stack *stack_b, int max_index)
 {
-	int	index;
 	int	i;
 
 	i = 0;
-	index = 0;
-	while (i <stack_a->size)
+	if (max_index <= stack_b->size / 2)
 	{
-		if (stack_a->values[i] < value)
-			index++;
-		i++;
+		while (i < max_index)
+		{
+			rb(stack_b);
+			i++;
+		}
 	}
-	return (index);
+	else
+	{
+		while (i < stack_b->size - max_index)
+		{
+			rrb(stack_b);
+			i++;
+		}
+	}
 }
 
-void	ft_chunk_index(t_stack *stack_a)
+static void	ft_process_chunk(t_stack *stack_a, t_stack *stack_b,
+	int start, int end)
 {
-	int	*indexes;
-	int	i;
+	while (ft_haschunk(stack_a, start, end))
+	{
+		if (stack_a->values[0] >= start
+			&& stack_a->values[0] < end)
+			pb(stack_a, stack_b);
+		else
+			ra(stack_a);
+	}
+}
 
-	i = 0;
-	indexes = malloc(sizeof(int) * stack_a->size);
-	if (!indexes)
-		return ;
-	while (i < stack_a->size)
+void	ft_push_max(t_stack *stack_a, t_stack *stack_b)
+{
+	int	max_index;
+
+	while (stack_b->size > 0)
 	{
-		indexes[i] = get_index(stack_a, stack_a->values[i]);
-		i++;
+		max_index = find_maxindex(stack_b);
+		ft_rotate_max(stack_b, max_index);
+		pa(stack_a, stack_b);
 	}
-	i = 0;
-	while (i < stack_a->size)
-	{
-		stack_a->values[i]= indexes[i];
-		i++;
-	}
-	free(indexes);
 }
 
 void	ft_chunk_sort(t_stack *stack_a, t_stack *stack_b)
@@ -57,11 +66,19 @@ void	ft_chunk_sort(t_stack *stack_a, t_stack *stack_b)
 	int	chunk;
 	int	start;
 	int	end;
+	int	total;
 
 	chunk = 0;
-	chunk_size = ft_sqrt(stack_a->size);
+	total = stack_a->size;
+	chunk_size = ft_sqrt(total);
 	start = chunk * chunk_size;
 	end = (chunk + 1) * chunk_size;
-	
-
+	while (start < total)
+	{
+		ft_process_chunk(stack_a, stack_b, start, end);
+		chunk++;
+		start = chunk * chunk_size;
+		end = (chunk + 1) * chunk_size;
+	}
+	ft_push_max(stack_a, stack_b);
 }

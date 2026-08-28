@@ -1,0 +1,23 @@
+Para adicionar rapidamente depois:
+
+Em push_swap.h, adicione count_only em t_config e t_stats.
+Em parse_flags.c, reconheça:
+
+if (strcmp(arg, "--count-only") == 0)
+{
+    config->count_only = 1;
+    return (0);
+}
+Em main.c, copie a configuração para as estatísticas:
+stats.count_only = config.count_only;
+Depois da ordenação:
+if (config.count_only)
+    print_count(&stats);
+else if (config.bench)
+    print_benchmark(a, disorder, used);
+
+Em operation_log.c, dentro de print_operation, mantenha o incremento do contador e retorne antes de escrever a operação:
+
+if (stack->stats->count_only)
+    return ;
+

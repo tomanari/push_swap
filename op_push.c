@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malves-a <malves-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:20:37 by mtomanar          #+#    #+#             */
-/*   Updated: 2026/08/20 14:34:09 by mtomanar         ###   ########.fr       */
+/*   Updated: 2026/08/25 18:42:26 by malves-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,18 @@ void	ft_push(t_stack *from, t_stack *to)
 	from->size--;
 }
 
-void	ft_pa(t_stack *stack_a, t_stack *stack_b)
+void	pa(t_stack *stack_a, t_stack *stack_b)
 {
+	if (!stack_b || stack_b->size == 0)
+		return ;
 	ft_push(stack_b, stack_a);
+	print_operation("pa", stack_a);
 }
 
-void	ft_pb(t_stack *stack_a, t_stack *stack_b)
+void	pb(t_stack *stack_a, t_stack *stack_b)
 {
+	if (!stack_a || stack_a->size == 0)
+		return ;
 	ft_push(stack_a, stack_b);
+	print_operation("pb", stack_a);
 }

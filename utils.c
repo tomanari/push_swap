@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	int	i;
 
@@ -64,7 +64,7 @@ int	operation_index(char *operation)
 	i = 0;
 	while (i < 11)
 	{
-		if (strcmp(operation, names[i]) == 0)
+		if (ft_strcmp(operation, names[i]) == 0)
 			return (i);
 		i++;
 	}

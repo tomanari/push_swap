@@ -38,21 +38,6 @@ t_stack	*init_stack(int capacity)
 	return (alloc_stack(capacity));
 }
 
-t_stack	*init_stack_a(int argc, char **argv)
-{
-	int	total_elements;
-
-	total_elements = count_total_elements(argc, argv);
-	if (total_elements <= 0)
-		return (NULL);
-	return (alloc_stack(total_elements));
-}
-
-t_stack	*init_stack_b(int capacity)
-{
-	return (alloc_stack(capacity));
-}
-
 void	free_stack(t_stack *stack)
 {
 	if (!stack)

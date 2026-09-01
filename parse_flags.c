@@ -14,13 +14,13 @@
 
 static int	parse_strategy_flag(const char *flag)
 {
-	if (strcmp(flag, "--simple") == 0)
+	if (ft_strcmp(flag, "--simple") == 0)
 		return (SIMPLE);
-	if (strcmp(flag, "--medium") == 0)
+	if (ft_strcmp(flag, "--medium") == 0)
 		return (MEDIUM);
-	if (strcmp(flag, "--complex") == 0)
+	if (ft_strcmp(flag, "--complex") == 0)
 		return (COMPLEX);
-	if (strcmp(flag, "--adaptive") == 0)
+	if (ft_strcmp(flag, "--adaptive") == 0)
 		return (ADAPTIVE);
 	return (-1);
 }
@@ -29,7 +29,7 @@ static int	parse_flag(char *arg, t_config *config)
 {
 	int		strategy;
 
-	if (strcmp(arg, "--bench") == 0)
+	if (ft_strcmp(arg, "--bench") == 0)
 	{
 		config->bench = 1;
 		return (0);

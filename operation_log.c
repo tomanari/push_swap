@@ -93,8 +93,6 @@ void	print_benchmark(t_stack *a, double disorder, t_strategy strategy)
 	print_counts(i);
 }
 
-int		operation_index(char *operation);
-
 void	print_operation(char *operation, t_stack *stack)
 {
 	int	i;

@@ -22,6 +22,10 @@ sorts `a` in ascending order. Built by **mtomanar** and **malves-a**.
 8. [Project Structure](#project-structure)
 9. [Performance Targets](#performance-targets)
 10. [Authors](#authors)
+11. [Resources](#resources)
+12. [AI Usage](#ai-usage)
+13. [Conclusion](#conclusion)
+
 
 ---
 
@@ -65,7 +69,7 @@ make fclean # remove object files and binary
 make re     # full rebuild
 ```
 
-The Makefile compiles with `-Wall -Wextra -Werror -fsanitize=address`.
+The Makefile compiles with `-Wall -Wextra -Werror`.
 
 ---
 
@@ -259,7 +263,7 @@ Based on the 42 correction sheet:
 
 ---
 
-# Resources
+## Resources
 
 The following resources were used to understand the concepts required by the project:
 
@@ -290,7 +294,7 @@ In particular, the implementation of the push, swap, rotate, reverse rotate, sim
 
 ---
 
-# Conclusion
+## Conclusion
 
 The `push_swap` project combines data structures, algorithm design, memory management, and optimization.
 

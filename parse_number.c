@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	num_over(long num, int sign, int digit)
+static int	num_over(long num, int sign, int digit)
 {
 	if (num > INT_MAX / 10)
 		return (1);
@@ -26,9 +26,10 @@ static int	get_sign(char *str, int *i)
 	int	sign;
 
 	sign = 1;
-	if (str[*i] == '-')
+	if (str[*i] == '-' || str[*i] == '+')
 	{
-		sign = -1;
+		if (str[*i] == '-')
+			sign = -1;
 		(*i)++;
 	}
 	return (sign);
@@ -57,7 +58,7 @@ int	ft_atoi_safe(char *str, int *result)
 	return (1);
 }
 
-int	parse_token(char *token, t_stack *a)
+static int	parse_token(char *token, t_stack *a)
 {
 	int	value;
 

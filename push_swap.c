@@ -12,14 +12,6 @@
 
 #include "push_swap.h"
 
-void	data_init(t_data *data)
-{
-	if (!data)
-		return ;
-	data->a = NULL;
-	data->b = NULL;
-}
-
 void	sort_stack(t_stack *a, t_stack *b)
 {
 	if (!a || !b || a->size < 2)

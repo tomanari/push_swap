@@ -21,6 +21,19 @@ int	num_over(long num, int sign, int digit)
 	return (0);
 }
 
+static int	get_sign(char *str, int *i)
+{
+	int	sign;
+
+	sign = 1;
+	if (str[*i] == '-')
+	{
+		sign = -1;
+		(*i)++;
+	}
+	return (sign);
+}
+
 int	ft_atoi_safe(char *str, int *result)
 {
 	int		i;
@@ -28,16 +41,9 @@ int	ft_atoi_safe(char *str, int *result)
 	long	num;
 
 	i = 0;
-	sign = 1;
+	sign = get_sign(str, &i);
 	num = 0;
-	if (!str || !result)
-		return (0);
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	if (str[i] == '\0')
+	if (!str || !result || str[i] == '\0')
 		return (0);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
@@ -88,9 +94,4 @@ int	parse_args_from(int argc, char **argv, int start, t_stack *a)
 		i++;
 	}
 	return (1);
-}
-
-int	parse_args(int argc, char **argv, t_stack *a)
-{
-	return (parse_args_from(argc, argv, 1, a));
 }

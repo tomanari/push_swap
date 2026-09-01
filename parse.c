@@ -11,3 +11,8 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	parse_args(int argc, char **argv, t_stack *a)
+{
+	return (parse_args_from(argc, argv, 1, a));
+}

@@ -13,7 +13,6 @@
 #include "push_swap.h"
 
 static int	is_space(char character)
-
 {
 	return (character == ' ' || character == '\t' || character == '\n'
 		|| character == '\v' || character == '\f' || character == '\r');

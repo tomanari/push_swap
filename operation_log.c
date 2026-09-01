@@ -12,26 +12,6 @@
 
 #include "push_swap.h"
 
-const char	*strategy_name(t_strategy strategy)
-{
-	if (strategy == SIMPLE)
-		return ("simple");
-	if (strategy == MEDIUM)
-		return ("medium");
-	if (strategy == COMPLEX)
-		return ("complex");
-	return ("adaptive");
-}
-
-const char	*strategy_complexity(t_strategy strategy)
-{
-	if (strategy == SIMPLE)
-		return ("O(n^2)");
-	if (strategy == MEDIUM)
-		return ("O(n sqrt(n))");
-	return ("O(n log(n))");
-}
-
 static void	write_text(int fd, const char *text)
 {
 	int	length;
@@ -45,7 +25,7 @@ static void	write_text(int fd, const char *text)
 static void	write_long(int fd, long value)
 {
 	char	buffer[24];
-	int	index;
+	int		index;
 
 	index = 23;
 	buffer[index--] = '\0';
@@ -62,6 +42,33 @@ static void	write_long(int fd, long value)
 		value /= 10;
 	}
 	write_text(fd, &buffer[index + 1]);
+}
+
+static void	print_counts(long *c)
+{
+	write_text(2, "\n[bench] counts: sa=");
+	write_long(2, c[0]);
+	write_text(2, " sb=");
+	write_long(2, c[1]);
+	write_text(2, " ss=");
+	write_long(2, c[2]);
+	write_text(2, " pa=");
+	write_long(2, c[3]);
+	write_text(2, " pb=");
+	write_long(2, c[4]);
+	write_text(2, " ra=");
+	write_long(2, c[5]);
+	write_text(2, " rb=");
+	write_long(2, c[6]);
+	write_text(2, " rr=");
+	write_long(2, c[7]);
+	write_text(2, " rra=");
+	write_long(2, c[8]);
+	write_text(2, " rrb=");
+	write_long(2, c[9]);
+	write_text(2, " rrr=");
+	write_long(2, c[10]);
+	write(2, "\n", 1);
 }
 
 void	print_benchmark(t_stack *a, double disorder, t_strategy strategy)
@@ -83,30 +90,10 @@ void	print_benchmark(t_stack *a, double disorder, t_strategy strategy)
 	write_text(2, strategy_complexity(strategy));
 	write_text(2, ")\n[bench] operations: ");
 	write_long(2, a->stats->total);
-	write_text(2, "\n[bench] counts: sa=");
-	write_long(2, i[0]); write_text(2, " sb="); write_long(2, i[1]);
-	write_text(2, " ss="); write_long(2, i[2]); write_text(2, " pa="); write_long(2, i[3]);
-	write_text(2, " pb="); write_long(2, i[4]); write_text(2, " ra="); write_long(2, i[5]);
-	write_text(2, " rb="); write_long(2, i[6]); write_text(2, " rr="); write_long(2, i[7]);
-	write_text(2, " rra="); write_long(2, i[8]); write_text(2, " rrb="); write_long(2, i[9]);
-	write_text(2, " rrr="); write_long(2, i[10]); write(2, "\n", 1);
+	print_counts(i);
 }
 
-static int	operation_index(char *operation)
-{
-	char	*names[11] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr",
-		"rra", "rrb", "rrr"};
-	int	i;
-
-	i = 0;
-	while (i < 11)
-	{
-		if (strcmp(operation, names[i]) == 0)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
+int		operation_index(char *operation);
 
 void	print_operation(char *operation, t_stack *stack)
 {
@@ -122,7 +109,6 @@ void	print_operation(char *operation, t_stack *stack)
 			stack->stats->total++;
 		}
 	}
-
 	i = 0;
 	while (operation[i])
 	{

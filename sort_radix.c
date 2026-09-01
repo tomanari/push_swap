@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	sort_copy(int *copy, int size)
+void	sort_copy(int *copy, int size)
 {
 	int	i;
 	int	j;

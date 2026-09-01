@@ -18,10 +18,10 @@ int	has_duplicate(t_stack *a)
 	int	j;
 
 	i = 0;
-	while (i < a -> size)
+	while (i < a->size)
 	{
 		j = i + 1;
-		while (j < a ->size)
+		while (j < a->size)
 		{
 			if (a->values[i] == a->values[j])
 				return (1);

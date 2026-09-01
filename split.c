@@ -13,7 +13,6 @@
 #include "push_swap.h"
 
 static int	is_space(char character, char separator)
-
 {
 	return (character == separator || character == '\t' || character == '\n'
 		|| character == '\v' || character == '\f' || character == '\r');
@@ -38,21 +37,6 @@ int	count_words(char const *s, char c)
 		s++;
 	}
 	return (count);
-}
-
-void	free_tokens(char **tokens)
-{
-	int	i;
-
-	if (!tokens)
-		return ;
-	i = 0;
-	while (tokens[i])
-	{
-		free(tokens[i]);
-		i++;
-	}
-	free(tokens);
 }
 
 static char	**free_all(char **strs, int i)

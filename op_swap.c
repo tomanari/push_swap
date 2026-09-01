@@ -19,7 +19,7 @@ void	ft_swap(t_stack *stack)
 	if (!stack || stack->size < 2)
 		return ;
 	temp = stack->values[0];
-	stack->values[0] = stack->values [1];
+	stack->values[0] = stack->values[1];
 	stack->values[1] = temp;
 }
 

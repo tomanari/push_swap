@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 CPPFLAGS = -MMD -MP
 
 SRC = main.c push_swap.c split.c parse.c parse_number.c count_elements.c \

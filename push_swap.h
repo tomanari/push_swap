@@ -21,9 +21,9 @@ int		strcmp(const char *s1, const char *s2);
 
 typedef struct s_stack
 {
-	int		*values;
-	long	size;
-	int		capacity;
+	int				*values;
+	long			size;
+	int				capacity;
 	struct s_stats	*stats;
 }	t_stack;
 
@@ -31,7 +31,7 @@ typedef struct s_stats
 {
 	long	counts[11];
 	long	total;
-} t_stats;
+}	t_stats;
 
 typedef enum e_strategy
 {
@@ -39,28 +39,22 @@ typedef enum e_strategy
 	MEDIUM,
 	COMPLEX,
 	ADAPTIVE
-} t_strategy;
+}	t_strategy;
 
 typedef struct s_config
 {
 	t_strategy	strategy;
 	int			bench;
-} t_config;
+}	t_config;
 
 typedef struct s_data
 {
 	t_stack	*a;
 	t_stack	*b;
-	/* Voce pode adicionar utilitarios aqui se o Radix/Chunk precisar */
-	int		*sorted_array; 
+	int		*sorted_array;
 	int		chunk_size;
 }	t_data;
-/*
-** Novas funcoes de Parsing e Utils
-*/
-/*
-** Novas funcoes de Parsing e Utils
-*/
+
 char	**ft_split(char const *s, char c);
 void	free_tokens(char **tokens);
 int		count_total_elements(int argc, char **argv);
@@ -76,12 +70,11 @@ int		has_duplicate(t_stack *a);
 int		is_sorted(t_stack *a);
 void	sort_stack(t_stack *a, t_stack *b);
 void	sort_selected(t_stack *a, t_stack *b, t_strategy strategy,
-		double disorder);
+			double disorder);
 double	compute_disorder(t_stack *a);
 void	normalize_stack(t_stack *stack);
-/*
-** Algoritmo e logica principal
-*/
+void	sort_copy(int *copy, int size);
+
 int		ft_haschunk(t_stack *stack_a, int start, int end);
 int		ft_sqrt(int n);
 int		find_maxindex(t_stack *stack_a);
@@ -92,32 +85,20 @@ void	sort_three(t_stack *stack_a);
 void	sort_top(t_stack *stack_a);
 void	sort_bottom(t_stack *stack_a);
 
-/*
-** Operacoes - Swap
-*/
 void	ft_swap(t_stack *stack);
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
 
-/*
-** Operacoes - Push
-*/
 void	ft_push(t_stack *from, t_stack *to);
 void	pa(t_stack *stack_a, t_stack *stack_b);
 void	pb(t_stack *stack_a, t_stack *stack_b);
 
-/*
-** Operacoes - Reverse Rotate
-*/
 void	ft_reverse(t_stack *stack);
 void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
-/*
-** Operacoes - Rotate
-*/
 void	ft_rotate(t_stack *stack);
 void	ra(t_stack *stack_a);
 void	rb(t_stack *stack_b);
@@ -130,7 +111,8 @@ void	ft_sort_simple(t_stack *a, t_stack *b);
 
 void	print_operation(char *operation, t_stack *stack);
 void	print_benchmark(t_stack *a, double disorder, t_strategy strategy);
-const char	*strategy_name(t_strategy strategy);
-const char	*strategy_complexity(t_strategy strategy);
+char	*strategy_name(t_strategy strategy);
+char	*strategy_complexity(t_strategy strategy);
+int		operation_index(char *operation);
 
 #endif

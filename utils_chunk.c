@@ -3,14 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   utils_chunk.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malves-a <malves-a@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mtomanar <mtomanar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/25 15:32:19 by mtomanar          #+#    #+#             */
-/*   Updated: 2026/08/25 16:10:21 by malves-a         ###   ########.fr       */
+/*   Created: 2026/09/01 16:28:39 by mtomanar          #+#    #+#             */
+/*   Updated: 2026/09/01 16:30:59 by mtomanar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	get_index(t_stack *a, int v)
+{
+	int	i;
+	int	c;
+
+	i = 0;
+	c = 0;
+	while (i < a->size)
+		if (a->values[i++] < v)
+			c++;
+	return (c);
+}
+
+void	normalize_stack(t_stack *s)
+{
+	int	*c;
+	int	i;
+
+	c = malloc(sizeof(int) * s->size);
+	if (!c)
+		return ;
+	i = 0;
+	while (i < s->size)
+	{
+		c[i] = get_index(s, s->values[i]);
+		i++;
+	}
+	i = 0;
+	while (i < s->size)
+	{
+		s->values[i] = c[i];
+		i++;
+	}
+	free(c);
+}
 
 int	ft_sqrt(int n)
 {
@@ -36,32 +72,4 @@ int	ft_haschunk(t_stack *stack_a, int start, int end)
 		i++;
 	}
 	return (0);
-}
-
-void	normalize_stack(t_stack *stack)
-{
-	int	*copy;
-	int	i;
-	int	j;
-
-	copy = malloc(sizeof(int) * stack->size);
-	if (!copy)
-		return ;
-	i = 0;
-	while (i < stack->size)
-	{
-		copy[i] = stack->values[i];
-		i++;
-	}
-	sort_copy(copy, stack->size);
-	i = 0;
-	while (i < stack->size)
-	{
-		j = 0;
-		while (j < stack->size && copy[j] != stack->values[i])
-			j++;
-		stack->values[i] = j;
-		i++;
-	}
-	free(copy);
 }

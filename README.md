@@ -205,6 +205,7 @@ typedef struct s_config
 push_swap/
 ├── Makefile              # Build rules: all, clean, fclean, re
 ├── push_swap.h           # Header: structs, enums, all prototypes
+├── push_swap.c           # sort_stack, strategy dispatch
 │
 ├── main.c                # Entry point, error handling, program flow
 │
@@ -226,12 +227,12 @@ push_swap/
 ├── op_rotate.c           # ft_rotate, ra, rb, rr
 ├── op_reverse.c          # ft_reverse, rra, rrb, rrr
 │
-│   ── Sorting Algorithms ──
-├── sort_small.c          # ft_sort_small: 3-5 elements (mtomanar)
-├── sort_helpers.c        # sort_two, sort_three (malves-a)
-├── sort_radix.c          # ft_sort_radix: LSD radix sort (malves-a)
-├── sort_chunk.c          # ft_chunk_sort: chunk-based sort (mtomanar)
-├── push_swap.c           # sort_stack, ft_sort_simple, strategy dispatch (malves-a)
+│   ── Sorting Algorithms (mtomanar) ──
+├── push_swap.c           # ft_sort_simple
+├── sort_small.c          # ft_sort_small: 3-5 elements 
+├── sort_helpers.c        # sort_two, sort_three
+├── sort_radix.c          # ft_sort_radix: LSD radix sort
+├── sort_chunk.c          # ft_chunk_sort: chunk-based sort
 │
 │   ── Utilities ──
 ├── utils.c               # strcmp
@@ -258,8 +259,8 @@ Based on the 42 correction sheet:
 
 | Student | Role | Files |
 |---------|------|-------|
-| **mtomanar** | Operations & core algorithms | `op_swap.c`, `op_push.c`, `op_rotate.c`, `op_reverse.c`, `sort_small.c`, `sort_chunk.c`, `utils_chunk.c` |
-| **malves-a** | Parsing, validation, strategy & benchmark | `main.c`, `push_swap.c`, `split.c`, `parse.c`, `parse_number.c`, `count_elements.c`, `parse_flags.c`, `disorder.c`, `check_duplicates.c`, `stack_init.c`, `utils.c`, `sort_helpers.c`, `sort_radix.c`, `operation_log.c` |
+| **mtomanar** | Operations & core algorithms | `op_swap.c`, `op_push.c`, `op_rotate.c`, `op_reverse.c`, `sort_helpers.c`, `sort_small.c`, `sort_chunk.c`, `utils_chunk.c`, `sort_radix.c` |
+| **malves-a** | Parsing, validation, strategy & benchmark | `main.c`, `push_swap.c`, `split.c`, `parse.c`, `parse_number.c`, `count_elements.c`, `parse_flags.c`, `disorder.c`, `check_duplicates.c`, `stack_init.c`, `utils.c`, `operation_log.c` |
 
 ---
 
